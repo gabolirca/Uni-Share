@@ -27,7 +27,7 @@ app.use('/api/auth',      require('./routes/auth.routes'))
 app.use('/api/users',     require('./routes/user.routes'))
 app.use('/api/materias',  require('./routes/materia.routes'))
 app.use('/api/materiales',require('./routes/material.routes'))
-
+app.use('/api/materiales/:material_id/comentarios', require('./routes/comentario.routes'))
 // Ruta de salud — para verificar que el servidor corre
 app.get('/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date() })
