@@ -142,3 +142,6 @@ vite.config.ts.timestamp-*
 backend/packages.microsoft.gpg
 backend/.env
 backend/node_modules/
+
+backend/uploads/*
+!backend/uploads/.gitkeep
