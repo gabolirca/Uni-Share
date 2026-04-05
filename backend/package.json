@@ -1,0 +1,11 @@
+{
+  "name": "unishare-backend",
+  "version": "1.0.0",
+  "description": "API REST para UniShare",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "license": "ISC"
+}
