@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UniShare - Bienvenido</title>
+<!-- Google Fonts: Manrope & Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed-dim": "#76d6d5",
+              "on-surface": "#191c21",
+              "background": "#f9f9ff",
+              "on-primary-container": "#bbd0ff",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed": "#2f1500",
+              "surface-bright": "#f9f9ff",
+              "secondary-container": "#90efef",
+              "secondary": "#006a6a",
+              "on-tertiary-container": "#ffc395",
+              "tertiary-fixed-dim": "#ffb77d",
+              "outline": "#727784",
+              "surface-container-highest": "#e1e2ea",
+              "primary-container": "#0056b3",
+              "on-error-container": "#93000a",
+              "tertiary": "#663500",
+              "surface-variant": "#e1e2ea",
+              "on-primary-fixed": "#001a40",
+              "on-error": "#ffffff",
+              "secondary-fixed": "#93f2f2",
+              "primary": "#003f87",
+              "primary-fixed-dim": "#acc7ff",
+              "on-tertiary-fixed-variant": "#6e3900",
+              "surface-container-low": "#f2f3fc",
+              "surface-container": "#ededf6",
+              "on-background": "#191c21",
+              "inverse-primary": "#acc7ff",
+              "primary-fixed": "#d7e2ff",
+              "tertiary-container": "#884800",
+              "surface-container-lowest": "#ffffff",
+              "surface": "#f9f9ff",
+              "on-primary": "#ffffff",
+              "on-primary-fixed-variant": "#004491",
+              "on-surface-variant": "#424752",
+              "inverse-on-surface": "#f0f0f9",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed": "#ffdcc3",
+              "error-container": "#ffdad6",
+              "surface-container-high": "#e7e8f0",
+              "on-secondary-fixed-variant": "#004f4f",
+              "on-secondary-fixed": "#002020",
+              "inverse-surface": "#2e3037",
+              "surface-dim": "#d9d9e2",
+              "outline-variant": "#c2c6d4",
+              "on-tertiary": "#ffffff",
+              "surface-tint": "#115cb9",
+              "on-secondary-container": "#006e6e"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .bg-mesh {
+            background-color: #f9f9ff;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(172, 199, 255, 0.4) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(144, 239, 239, 0.3) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(255, 183, 125, 0.2) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(172, 199, 255, 0.3) 0px, transparent 50%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-mesh font-body text-on-surface min-h-screen selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Navigation Shell (TopAppBar) -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto relative">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-blue-700 dark:text-blue-400" data-icon="school">school</span>
+<span class="text-2xl font-black tracking-tighter text-blue-900 dark:text-blue-100 font-manrope">UniShare</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-6 py-2 rounded-full font-inter text-sm font-medium tracking-tight text-blue-700 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors duration-200 Active:scale-95 transition-transform duration-150">
+                    Iniciar sesión
+                </button>
+</div>
+<!-- Separation Logic Anchor -->
+<div class="bg-slate-200/50 dark:bg-slate-800/50 h-[1px] w-full absolute bottom-0 left-0"></div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="relative flex flex-col items-center justify-center min-h-screen px-6 pt-20">
+<!-- Background Decorative Elements (The Scholarly Atelier Aesthetic) -->
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+<div class="absolute top-[20%] left-[10%] w-72 h-72 bg-primary/10 rounded-full blur-[100px]"></div>
+<div class="absolute bottom-[20%] right-[10%] w-96 h-96 bg-secondary/10 rounded-full blur-[120px]"></div>
+</div>
+<!-- Hero Section (Centered) -->
+<div class="max-w-4xl w-full text-center relative z-10">
+<!-- Subtle Label Accent -->
+<div class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full bg-surface-container-high/50 backdrop-blur-md border border-outline-variant/20 shadow-sm animate-fade-in">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="text-xs font-semibold tracking-widest text-on-surface-variant uppercase font-label">Academia Digital</span>
+</div>
+<!-- Main Headline -->
+<h1 class="font-headline font-extrabold text-5xl md:text-7xl lg:text-8xl text-on-surface tracking-tight leading-[1.1] mb-8">
+                Bienvenido a <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-container to-secondary">UniShare</span>
+</h1>
+<!-- Descriptive Subtext -->
+<p class="font-body text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto mb-12 leading-relaxed opacity-90">
+                La red social académica para compartir y descargar material de estudio. Únete a miles de estudiantes y potencia tu aprendizaje.
+            </p>
+<!-- Prominent CTA -->
+<div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+<button class="group relative px-10 py-5 bg-gradient-to-r from-primary to-primary-container text-on-primary font-headline font-bold text-lg rounded-full shadow-2xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+<div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<span class="relative flex items-center gap-3">
+                        Iniciar sesión
+                        <span class="material-symbols-outlined text-xl" data-icon="login">login</span>
+</span>
+</button>
+</div>
+</div>
+<!-- Visual Anchor (Subtle Card Mockup) -->
+<div class="mt-20 w-full max-w-5xl opacity-40 grayscale-[0.5] pointer-events-none">
+<div class="bg-surface-container-lowest/40 backdrop-blur-2xl rounded-2xl border border-outline-variant/10 shadow-2xl p-4 md:p-8 flex flex-col gap-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-fixed"></div>
+<div class="flex-1 space-y-2">
+<div class="h-4 w-1/4 bg-surface-container-highest rounded"></div>
+<div class="h-3 w-1/6 bg-surface-container-high rounded"></div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="h-3 w-full bg-surface-container-high rounded"></div>
+<div class="h-3 w-full bg-surface-container-high rounded"></div>
+<div class="h-3 w-2/3 bg-surface-container-high rounded"></div>
+</div>
+<div class="flex gap-2">
+<div class="h-8 w-24 bg-secondary-container rounded-lg"></div>
+<div class="h-8 w-24 bg-tertiary-fixed rounded-lg"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Anchor -->
+<footer class="w-full border-t border-slate-100 dark:border-slate-900 bg-slate-50 dark:bg-slate-950 mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 w-full gap-4 max-w-7xl mx-auto">
+<div class="flex flex-col gap-1 items-center md:items-start">
+<span class="font-manrope font-bold text-slate-900 dark:text-slate-100">UniShare</span>
+<span class="font-inter text-xs text-slate-500 dark:text-slate-400">© 2024 UniShare Scholarly Atelier. All rights reserved.</span>
+</div>
+</div>
+</footer>
+</body></html>

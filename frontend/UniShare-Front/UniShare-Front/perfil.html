@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UNI SHARE - Mi Perfil</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed": "#001a40",
+              "outline": "#727784",
+              "surface-bright": "#f9f9ff",
+              "inverse-primary": "#acc7ff",
+              "primary-container": "#0056b3",
+              "on-secondary-container": "#006e6e",
+              "surface-container-high": "#e7e8f0",
+              "on-surface-variant": "#424752",
+              "surface-tint": "#115cb9",
+              "outline-variant": "#c2c6d4",
+              "on-secondary-fixed-variant": "#004f4f",
+              "surface-container": "#ededf6",
+              "surface-container-lowest": "#ffffff",
+              "primary": "#003f87",
+              "on-tertiary-fixed-variant": "#6e3900",
+              "surface-container-low": "#f2f3fc",
+              "on-tertiary-fixed": "#2f1500",
+              "surface-variant": "#e1e2ea",
+              "on-primary-container": "#bbd0ff",
+              "on-surface": "#191c21",
+              "on-tertiary-container": "#ffc395",
+              "on-secondary-fixed": "#002020",
+              "on-secondary": "#ffffff",
+              "on-error": "#ffffff",
+              "background": "#f9f9ff",
+              "tertiary-fixed-dim": "#ffb77d",
+              "surface": "#f9f9ff",
+              "inverse-surface": "#2e3037",
+              "surface-dim": "#d9d9e2",
+              "secondary-fixed-dim": "#76d6d5",
+              "error-container": "#ffdad6",
+              "tertiary": "#663500",
+              "error": "#ba1a1a",
+              "on-primary-fixed-variant": "#004491",
+              "tertiary-fixed": "#ffdcc3",
+              "inverse-on-surface": "#f0f0f9",
+              "secondary-container": "#90efef",
+              "on-tertiary": "#ffffff",
+              "on-background": "#191c21",
+              "secondary": "#006a6a",
+              "tertiary-container": "#884800",
+              "secondary-fixed": "#93f2f2",
+              "primary-fixed-dim": "#acc7ff",
+              "surface-container-highest": "#e1e2ea",
+              "primary-fixed": "#d7e2ff",
+              "on-error-container": "#93000a",
+              "on-primary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .mesh-bg {
+            background-color: #f9f9ff;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(210,100%,93%,1) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(220,100%,95%,1) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(200,100%,92%,1) 0, transparent 50%);
+        }
+        body {
+          min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface min-h-screen mesh-bg pb-24">
+<header class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border-b border-blue-100/20 dark:border-blue-800/20 shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-6 py-3 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-800 dark:text-blue-400">school</span>
+<h1 class="text-xl font-extrabold tracking-tighter text-blue-900 dark:text-blue-100 font-headline">UNI SHARE</h1>
+</div>
+<div class="relative group">
+<button class="flex items-center gap-2 p-1.5 pr-3 hover:bg-blue-50/50 dark:hover:bg-blue-900/30 rounded-full transition-all duration-200 active:scale-95 border border-transparent hover:border-blue-100/50">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs shadow-sm">
+      JD
+    </div>
+<span class="material-symbols-outlined text-slate-500 text-lg transition-transform group-hover:rotate-180">expand_more</span>
+</button>
+<div class="absolute right-0 mt-2 w-56 origin-top-right bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-blue-100/20 dark:border-blue-800/20 rounded-xl shadow-xl shadow-blue-900/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 z-[60]">
+<div class="p-2 space-y-1">
+<a href="perfil.html" class="flex items-center gap-3 px-4 py-2.5 text-sm font-medium text-on-surface-variant hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-primary rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg">person</span>
+        Ver perfil
+      </a>
+<a href="configuracion.html" class="flex items-center gap-3 px-4 py-2.5 text-sm font-medium text-on-surface-variant hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-primary rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg">settings</span>
+        Configuración
+      </a>
+<div class="h-px bg-blue-100/50 dark:bg-blue-800/30 my-1"></div>
+<a href="login.html" class="w-full flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-error hover:bg-error/10 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg">logout</span>
+        Cerrar sesión
+      </a>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<main class="pt-24 px-6 max-w-5xl mx-auto pb-12">
+    
+    <a href="dashboard.html" class="inline-flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors font-medium text-sm mb-6">
+        <span class="material-symbols-outlined text-sm">arrow_back</span>
+        Volver al Inicio
+    </a>
+
+    <section class="bg-surface-container-lowest rounded-3xl p-8 shadow-sm border border-outline-variant/10 flex flex-col md:flex-row items-center gap-8 mb-10 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none"></div>
+
+        <div class="w-32 h-32 rounded-full overflow-hidden bg-gradient-to-br from-primary to-primary-container text-white flex items-center justify-center text-5xl font-headline font-bold border-4 border-white shadow-lg relative z-10">
+            JD
+        </div>
+        
+        <div class="text-center md:text-left flex-1 relative z-10">
+            <h2 class="text-3xl font-headline font-extrabold text-primary mb-2">Juan Doe</h2>
+            <div class="space-y-1">
+                <p class="text-on-surface-variant font-medium text-base flex items-center justify-center md:justify-start gap-2">
+                    <span class="material-symbols-outlined text-sm">school</span>
+                    Ingeniería de Software • 6º Cuatrimestre
+                </p>
+                <p class="text-slate-500 text-sm flex items-center justify-center md:justify-start gap-2">
+                    <span class="material-symbols-outlined text-sm">mail</span>
+                    juan.doe@universidad.edu
+                </p>
+            </div>
+        </div>
+        
+        <div class="relative z-10 w-full md:w-auto">
+            <button onclick="abrirModalEditarPerfil()" class="w-full md:w-auto flex items-center justify-center gap-2 bg-blue-50 text-primary border border-blue-200 px-6 py-3 rounded-full font-bold hover:bg-blue-100 transition-colors active:scale-95">
+                <span class="material-symbols-outlined text-sm">edit</span>
+                Editar perfil
+            </button>
+        </div>
+    </section>
+
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-outline-variant/10 flex items-center gap-5 hover:-translate-y-1 transition-transform">
+            <div class="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center text-blue-700">
+                <span class="material-symbols-outlined text-3xl">upload_file</span>
+            </div>
+            <div>
+                <p class="text-3xl font-headline font-extrabold text-on-surface">12</p>
+                <p class="text-sm font-medium text-on-surface-variant">Aportes subidos</p>
+            </div>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-outline-variant/10 flex items-center gap-5 hover:-translate-y-1 transition-transform">
+            <div class="w-14 h-14 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-700">
+                <span class="material-symbols-outlined text-3xl">download</span>
+            </div>
+            <div>
+                <p class="text-3xl font-headline font-extrabold text-on-surface">348</p>
+                <p class="text-sm font-medium text-on-surface-variant">Descargas generadas</p>
+            </div>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-outline-variant/10 flex items-center gap-5 hover:-translate-y-1 transition-transform">
+            <div class="w-14 h-14 rounded-xl bg-purple-100 flex items-center justify-center text-purple-700">
+                <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+            </div>
+            <div>
+                <p class="text-3xl font-headline font-extrabold text-on-surface">1,250</p>
+                <p class="text-sm font-medium text-on-surface-variant">Puntos de Karma</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="space-y-6">
+        <div class="flex items-center justify-between border-b border-surface-variant pb-4">
+            <h3 class="text-xl font-headline font-bold text-on-surface flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">folder_open</span>
+                Mis Materiales
+            </h3>
+            <div class="flex gap-2">
+                <button class="bg-primary text-white text-xs font-bold px-4 py-2 rounded-full">Recientes</button>
+                <button class="bg-surface-container-high text-on-surface-variant text-xs font-bold px-4 py-2 rounded-full hover:bg-surface-variant">Más descargados</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6">
+            <article class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-outline-variant/10 hover:shadow-md transition-shadow">
+                <div class="flex items-start justify-between mb-4">
+                    <span class="bg-blue-100 text-on-primary-fixed-variant px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">Bases de Datos</span>
+                    <span class="text-xs text-on-surface-variant flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[14px]">calendar_today</span>
+                        Subido hace 2 semanas
+                    </span>
+                </div>
+                <h4 class="text-lg font-headline font-bold text-primary mb-2">Cheat Sheet SQL: Joins y Subqueries</h4>
+                <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Una sola página con la sintaxis de todos los tipos de joins y ejemplos prácticos de subconsultas complejas. Formato PDF listo para imprimir.</p>
+                <div class="flex items-center justify-between border-t border-surface-container pt-4">
+                    <div class="flex items-center gap-6">
+                        <div class="flex items-center gap-1 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">thumb_up</span>
+                            <span class="text-sm font-semibold">112 likes</span>
+                        </div>
+                        <div class="flex items-center gap-1 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-lg">download</span>
+                            <span class="text-sm font-semibold">89 descargas</span>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button class="flex items-center gap-1 text-slate-500 hover:text-primary transition-colors px-3 py-1.5 rounded-lg hover:bg-blue-50">
+                            <span class="material-symbols-outlined text-sm">edit</span>
+                            <span class="text-xs font-bold">Editar</span>
+                        </button>
+                        <button class="flex items-center gap-1 text-slate-500 hover:text-error transition-colors px-3 py-1.5 rounded-lg hover:bg-error/10">
+                            <span class="material-symbols-outlined text-sm">delete</span>
+                            <span class="text-xs font-bold">Eliminar</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</main>
+
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-2xl shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-3xl md:hidden">
+<div class="flex justify-around items-center px-4 pb-4 pt-2">
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 active:scale-90 transition-transform" href="dashboard.html">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-['Inter'] text-[11px] font-medium">Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-['Inter'] text-[11px] font-medium">Biblioteca</span>
+</a>
+<a class="cursor-pointer flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 active:scale-90 transition-transform">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-['Inter'] text-[11px] font-medium">Subir</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-100 dark:bg-blue-900/40 text-blue-900 dark:text-blue-100 rounded-2xl px-5 py-2 active:scale-90 transition-transform" href="perfil.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-['Inter'] text-[11px] font-medium">Perfil</span>
+</a>
+</div>
+</nav>
+
+<div id="modalEditarPerfil" class="fixed inset-0 z-[100] hidden items-center justify-center" style="background: rgba(0,0,0,0.25); backdrop-filter: blur(6px);">
+    <div class="bg-white dark:bg-slate-900 w-[90%] max-w-lg rounded-3xl p-8 shadow-2xl relative animate-in fade-in zoom-in duration-300">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold text-primary dark:text-blue-400">Editar perfil</h2>
+            <button onclick="cerrarModalEditarPerfil()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        
+        <form class="space-y-4" onsubmit="event.preventDefault(); cerrarModalEditarPerfil();">
+            
+            <div class="flex flex-col items-center gap-3 mb-4 border-b border-blue-100 pb-4">
+                <div class="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-primary-container text-white flex items-center justify-center text-2xl font-headline font-bold">
+                    JD
+                </div>
+                <label class="cursor-pointer bg-blue-50 text-primary px-4 py-1.5 rounded-full text-xs font-bold hover:bg-blue-100 transition-colors">
+                    Cambiar foto
+                    <input type="file" class="hidden" accept="image/*">
+                </label>
+            </div>
+
+            <div class="space-y-1">
+                <label class="text-xs font-bold text-slate-500 uppercase px-1">Nombre completo</label>
+                <input class="w-full px-4 py-3 rounded-xl border border-blue-100 dark:border-blue-800 bg-blue-50/30 dark:bg-blue-900/10 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" value="Juan Doe" type="text"/>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-1">
+                    <label class="text-xs font-bold text-slate-500 uppercase px-1">Carrera</label>
+                    <select class="w-full px-4 py-3 rounded-xl border border-blue-100 dark:border-blue-800 bg-blue-50/30 dark:bg-blue-900/10 focus:ring-2 focus:ring-primary outline-none">
+                        <option selected>Ingeniería de Software</option>
+                        <option>Lic. en Administración</option>
+                        <option>Ingeniería Industrial</option>
+                        <option>Lic. en Diseño Gráfico</option>
+                        <option>Lic. en Derecho</option>
+                    </select>
+                </div>
+                <div class="space-y-1">
+                    <label class="text-xs font-bold text-slate-500 uppercase px-1">Cuatrimestre</label>
+                    <select class="w-full px-4 py-3 rounded-xl border border-blue-100 dark:border-blue-800 bg-blue-50/30 dark:bg-blue-900/10 focus:ring-2 focus:ring-primary outline-none">
+                        <option>1º Cuatrimestre</option>
+                        <option>2º Cuatrimestre</option>
+                        <option>3º Cuatrimestre</option>
+                        <option>4º Cuatrimestre</option>
+                        <option>5º Cuatrimestre</option>
+                        <option selected>6º Cuatrimestre</option>
+                        <option>7º Cuatrimestre</option>
+                        <option>8º Cuatrimestre</option>
+                        <option>9º Cuatrimestre</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="flex gap-3 pt-4">
+                <button type="button" onclick="cerrarModalEditarPerfil()" class="flex-1 bg-surface-container-high text-on-surface-variant font-bold py-3.5 rounded-xl hover:bg-surface-variant transition-all active:scale-95">
+                    Cancelar
+                </button>
+                <button type="submit" class="flex-1 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold py-3.5 rounded-xl shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all active:scale-95">
+                    Guardar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Lógica para el modal de editar perfil
+    const modalEditar = document.getElementById('modalEditarPerfil');
+
+    function abrirModalEditarPerfil() {
+        modalEditar.classList.remove('hidden');
+        modalEditar.classList.add('flex');
+    }
+
+    function cerrarModalEditarPerfil() {
+        modalEditar.classList.add('hidden');
+        modalEditar.classList.remove('flex');
+    }
+</script>
+
+</body></html>

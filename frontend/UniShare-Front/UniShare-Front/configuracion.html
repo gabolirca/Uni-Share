@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UNI SHARE - Configuración</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed": "#001a40",
+              "outline": "#727784",
+              "surface-bright": "#f9f9ff",
+              "inverse-primary": "#acc7ff",
+              "primary-container": "#0056b3",
+              "on-secondary-container": "#006e6e",
+              "surface-container-high": "#e7e8f0",
+              "on-surface-variant": "#424752",
+              "surface-tint": "#115cb9",
+              "outline-variant": "#c2c6d4",
+              "on-secondary-fixed-variant": "#004f4f",
+              "surface-container": "#ededf6",
+              "surface-container-lowest": "#ffffff",
+              "primary": "#003f87",
+              "on-tertiary-fixed-variant": "#6e3900",
+              "surface-container-low": "#f2f3fc",
+              "on-tertiary-fixed": "#2f1500",
+              "surface-variant": "#e1e2ea",
+              "on-primary-container": "#bbd0ff",
+              "on-surface": "#191c21",
+              "on-tertiary-container": "#ffc395",
+              "on-secondary-fixed": "#002020",
+              "on-secondary": "#ffffff",
+              "on-error": "#ffffff",
+              "background": "#f9f9ff",
+              "tertiary-fixed-dim": "#ffb77d",
+              "surface": "#f9f9ff",
+              "inverse-surface": "#2e3037",
+              "surface-dim": "#d9d9e2",
+              "secondary-fixed-dim": "#76d6d5",
+              "error-container": "#ffdad6",
+              "tertiary": "#663500",
+              "error": "#ba1a1a",
+              "on-primary-fixed-variant": "#004491",
+              "tertiary-fixed": "#ffdcc3",
+              "inverse-on-surface": "#f0f0f9",
+              "secondary-container": "#90efef",
+              "on-tertiary": "#ffffff",
+              "on-background": "#191c21",
+              "secondary": "#006a6a",
+              "tertiary-container": "#884800",
+              "secondary-fixed": "#93f2f2",
+              "primary-fixed-dim": "#acc7ff",
+              "surface-container-highest": "#e1e2ea",
+              "primary-fixed": "#d7e2ff",
+              "on-error-container": "#93000a",
+              "on-primary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .mesh-bg {
+            background-color: #f9f9ff;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(210,100%,93%,1) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(220,100%,95%,1) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(200,100%,92%,1) 0, transparent 50%);
+        }
+        body {
+          min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface min-h-screen mesh-bg pb-24">
+<header class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border-b border-blue-100/20 dark:border-blue-800/20 shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-6 py-3 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-800 dark:text-blue-400">school</span>
+<h1 class="text-xl font-extrabold tracking-tighter text-blue-900 dark:text-blue-100 font-headline">UNI SHARE</h1>
+</div>
+<div class="relative group">
+<button class="flex items-center gap-2 p-1.5 pr-3 hover:bg-blue-50/50 dark:hover:bg-blue-900/30 rounded-full transition-all duration-200 active:scale-95 border border-transparent hover:border-blue-100/50">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs shadow-sm">
+      JD
+    </div>
+<span class="material-symbols-outlined text-slate-500 text-lg transition-transform group-hover:rotate-180">expand_more</span>
+</button>
+<div class="absolute right-0 mt-2 w-56 origin-top-right bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-blue-100/20 dark:border-blue-800/20 rounded-xl shadow-xl shadow-blue-900/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 z-[60]">
+<div class="p-2 space-y-1">
+<a href="perfil.html" class="flex items-center gap-3 px-4 py-2.5 text-sm font-medium text-on-surface-variant hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-primary rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg">person</span>
+        Ver perfil
+      </a>
+<a href="configuracion.html" class="flex items-center gap-3 px-4 py-2.5 text-sm font-medium text-on-surface-variant hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-primary rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg">settings</span>
+        Configuración
+      </a>
+<div class="h-px bg-blue-100/50 dark:bg-blue-800/30 my-1"></div>
+<a href="login.html" class="w-full flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-error hover:bg-error/10 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg">logout</span>
+        Cerrar sesión
+      </a>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<main class="pt-24 px-6 max-w-6xl mx-auto pb-12">
+    
+    <a href="dashboard.html" class="inline-flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors font-medium text-sm mb-6">
+        <span class="material-symbols-outlined text-sm">arrow_back</span>
+        Volver al Inicio
+    </a>
+
+    <div class="mb-8">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tight text-primary flex items-center gap-3">
+            <span class="material-symbols-outlined text-4xl">settings</span>
+            Configuración
+        </h2>
+        <p class="text-on-surface-variant mt-2">Gestiona los detalles de tu cuenta, seguridad y notificaciones.</p>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-8">
+        
+        <aside class="w-full md:w-64 flex-shrink-0">
+            <div class="bg-surface-container-lowest rounded-2xl p-3 shadow-sm border border-outline-variant/10 flex flex-row md:flex-col gap-1 overflow-x-auto no-scrollbar">
+                <button onclick="mostrarTab('cuenta')" id="btn-cuenta" class="tab-btn flex items-center gap-3 px-4 py-3 text-sm font-bold text-primary bg-blue-50 rounded-xl transition-colors whitespace-nowrap">
+                    <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">manage_accounts</span>
+                    Cuenta y Seguridad
+                </button>
+                <button onclick="mostrarTab('notificaciones')" id="btn-notificaciones" class="tab-btn flex items-center gap-3 px-4 py-3 text-sm font-medium text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors whitespace-nowrap">
+                    <span class="material-symbols-outlined text-lg">notifications</span>
+                    Notificaciones
+                </button>
+                <button onclick="mostrarTab('privacidad')" id="btn-privacidad" class="tab-btn flex items-center gap-3 px-4 py-3 text-sm font-medium text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors whitespace-nowrap">
+                    <span class="material-symbols-outlined text-lg">shield_person</span>
+                    Privacidad
+                </button>
+            </div>
+        </aside>
+
+        <div class="flex-1">
+            
+            <div id="tab-cuenta" class="tab-content space-y-6 block animate-in fade-in duration-300">
+                <section class="bg-surface-container-lowest rounded-3xl p-8 shadow-sm border border-outline-variant/10 relative overflow-hidden">
+                    <h3 class="text-xl font-headline font-bold text-on-surface mb-6 border-b border-surface-variant pb-4">Correo Institucional</h3>
+                    <div class="max-w-md space-y-4">
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-slate-500 uppercase px-1">Correo actual</label>
+                            <input class="w-full px-4 py-3 rounded-xl border border-blue-100 bg-surface-container-low focus:outline-none text-slate-500 cursor-not-allowed" value="juan.doe@universidad.edu" type="email" disabled/>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-slate-500 uppercase px-1">Nuevo correo</label>
+                            <input class="w-full px-4 py-3 rounded-xl border border-blue-100 bg-blue-50/30 focus:ring-2 focus:ring-primary outline-none transition-all" placeholder="nuevo.correo@universidad.edu" type="email"/>
+                        </div>
+                        <button type="button" onclick="abrirModalConfirmacion('correo')" class="bg-primary text-on-primary font-bold py-3 px-6 rounded-xl shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all active:scale-95">
+                            Actualizar correo
+                        </button>
+                    </div>
+                </section>
+
+                <section class="bg-surface-container-lowest rounded-3xl p-8 shadow-sm border border-outline-variant/10 relative overflow-hidden">
+                    <h3 class="text-xl font-headline font-bold text-on-surface mb-6 border-b border-surface-variant pb-4">Cambiar Contraseña</h3>
+                    <div class="max-w-md space-y-4">
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-slate-500 uppercase px-1">Contraseña actual</label>
+                            <input class="w-full px-4 py-3 rounded-xl border border-blue-100 bg-blue-50/30 focus:ring-2 focus:ring-primary outline-none transition-all" placeholder="••••••••" type="password"/>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-slate-500 uppercase px-1">Nueva contraseña</label>
+                            <input class="w-full px-4 py-3 rounded-xl border border-blue-100 bg-blue-50/30 focus:ring-2 focus:ring-primary outline-none transition-all" placeholder="Mínimo 8 caracteres" type="password"/>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-slate-500 uppercase px-1">Confirmar nueva contraseña</label>
+                            <input class="w-full px-4 py-3 rounded-xl border border-blue-100 bg-blue-50/30 focus:ring-2 focus:ring-primary outline-none transition-all" placeholder="••••••••" type="password"/>
+                        </div>
+                        <button type="button" onclick="abrirModalConfirmacion('contraseña')" class="bg-primary text-on-primary font-bold py-3 px-6 rounded-xl shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all active:scale-95">
+                            Guardar contraseña
+                        </button>
+                    </div>
+                </section>
+
+                <section class="bg-error-container/20 rounded-3xl p-8 shadow-sm border border-error/20 relative overflow-hidden">
+                    <h3 class="text-xl font-headline font-bold text-error mb-2">Zona de Peligro</h3>
+                    <p class="text-on-surface-variant text-sm mb-6">Una vez que elimines tu cuenta, no hay vuelta atrás. Por favor, asegúrate de estar seguro.</p>
+                    <button type="button" onclick="abrirModalPeligro()" class="bg-error text-white font-bold py-3 px-6 rounded-xl shadow-lg shadow-error/20 hover:bg-red-700 transition-all active:scale-95 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm">delete_forever</span>
+                        Eliminar mi cuenta
+                    </button>
+                </section>
+            </div>
+
+            <div id="tab-notificaciones" class="tab-content space-y-6 hidden animate-in fade-in duration-300">
+                <section class="bg-surface-container-lowest rounded-3xl p-8 shadow-sm border border-outline-variant/10 relative overflow-hidden">
+                    <h3 class="text-xl font-headline font-bold text-on-surface mb-6 border-b border-surface-variant pb-4">Preferencias de correos</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h4 class="font-bold text-on-surface">Nuevos comentarios</h4>
+                                <p class="text-sm text-on-surface-variant">Cuando alguien comenta en tu material subido.</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" value="" class="sr-only peer" checked>
+                                <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                            </label>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h4 class="font-bold text-on-surface">Descargas de material</h4>
+                                <p class="text-sm text-on-surface-variant">Resumen semanal de cuántas veces han descargado tus aportes.</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" value="" class="sr-only peer" checked>
+                                <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                            </label>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h4 class="font-bold text-on-surface">Novedades de UniShare</h4>
+                                <p class="text-sm text-on-surface-variant">Noticias, nuevas funciones y actualizaciones de la plataforma.</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" value="" class="sr-only peer">
+                                <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="tab-privacidad" class="tab-content space-y-6 hidden animate-in fade-in duration-300">
+                <section class="bg-surface-container-lowest rounded-3xl p-8 shadow-sm border border-outline-variant/10 relative overflow-hidden">
+                    <h3 class="text-xl font-headline font-bold text-on-surface mb-6 border-b border-surface-variant pb-4">Visibilidad del perfil</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="space-y-1 max-w-md">
+                            <label class="text-xs font-bold text-slate-500 uppercase px-1">¿Quién puede ver tu perfil?</label>
+                            <select class="w-full px-4 py-3 rounded-xl border border-blue-100 bg-blue-50/30 focus:ring-2 focus:ring-primary outline-none">
+                                <option>Todos en UniShare</option>
+                                <option>Solo estudiantes de mi carrera</option>
+                                <option>Nadie (Privado)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="flex items-center justify-between border-t border-surface-variant pt-6">
+                            <div>
+                                <h4 class="font-bold text-on-surface">Ocultar mis estadísticas</h4>
+                                <p class="text-sm text-on-surface-variant">Los demás no podrán ver tus puntos de Karma ni descargas.</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" value="" class="sr-only peer">
+                                <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+<div id="modalConfirmacion" class="fixed inset-0 z-[100] hidden items-center justify-center" style="background: rgba(0,0,0,0.3); backdrop-filter: blur(4px);">
+    <div class="bg-white dark:bg-slate-900 w-[90%] max-w-sm rounded-3xl p-8 shadow-2xl relative animate-in fade-in zoom-in duration-200 text-center">
+        <div class="w-16 h-16 bg-blue-100 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="material-symbols-outlined text-3xl">help</span>
+        </div>
+        <h3 class="text-xl font-headline font-bold text-on-surface mb-2">¿Guardar cambios?</h3>
+        <p id="textoModalConfirmacion" class="text-on-surface-variant text-sm mb-6">Se actualizará la información de tu cuenta. ¿Deseas continuar?</p>
+        <div class="flex gap-3">
+            <button onclick="cerrarModalConfirmacion()" class="flex-1 bg-surface-container-high text-on-surface-variant font-bold py-3 rounded-xl hover:bg-surface-variant transition-all active:scale-95">Cancelar</button>
+            <button onclick="cerrarModalConfirmacion()" class="flex-1 bg-primary text-on-primary font-bold py-3 rounded-xl shadow-lg shadow-primary/20 hover:shadow-xl transition-all active:scale-95">Sí, guardar</button>
+        </div>
+    </div>
+</div>
+
+<div id="modalPeligro" class="fixed inset-0 z-[100] hidden items-center justify-center" style="background: rgba(0,0,0,0.5); backdrop-filter: blur(6px);">
+    <div class="bg-white dark:bg-slate-900 w-[90%] max-w-sm rounded-3xl p-8 shadow-2xl relative animate-in fade-in zoom-in duration-200 text-center border border-error/20">
+        <div class="w-16 h-16 bg-error-container text-error rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="material-symbols-outlined text-3xl">warning</span>
+        </div>
+        <h3 class="text-xl font-headline font-bold text-error mb-2">Eliminar cuenta</h3>
+        <p class="text-on-surface-variant text-sm mb-6">Esta acción es irreversible. Perderás todos tus aportes, descargas y configuración. ¿Estás absolutamente seguro?</p>
+        <div class="flex gap-3">
+            <button onclick="cerrarModalPeligro()" class="flex-1 bg-surface-container-high text-on-surface-variant font-bold py-3 rounded-xl hover:bg-surface-variant transition-all active:scale-95">Cancelar</button>
+            <button onclick="window.location.href='index.html'" class="flex-1 bg-error text-white font-bold py-3 rounded-xl shadow-lg shadow-error/20 hover:bg-red-700 transition-all active:scale-95">Sí, eliminar</button>
+        </div>
+    </div>
+</div>
+
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-2xl shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-3xl md:hidden">
+<div class="flex justify-around items-center px-4 pb-4 pt-2">
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 active:scale-90 transition-transform" href="dashboard.html">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-['Inter'] text-[11px] font-medium">Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-['Inter'] text-[11px] font-medium">Biblioteca</span>
+</a>
+<a class="cursor-pointer flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 active:scale-90 transition-transform">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-['Inter'] text-[11px] font-medium">Subir</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 active:scale-90 transition-transform" href="perfil.html">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Inter'] text-[11px] font-medium">Perfil</span>
+</a>
+</div>
+</nav>
+
+<script>
+    // --- Lógica de Pestañas ---
+    function mostrarTab(tabName) {
+        const contents = document.querySelectorAll('.tab-content');
+        contents.forEach(content => {
+            content.classList.add('hidden');
+            content.classList.remove('block');
+        });
+
+        const btns = document.querySelectorAll('.tab-btn');
+        btns.forEach(btn => {
+            btn.classList.remove('text-primary', 'bg-blue-50', 'font-bold');
+            btn.classList.add('text-on-surface-variant', 'font-medium', 'hover:bg-surface-variant');
+            const icon = btn.querySelector('.material-symbols-outlined');
+            icon.style.fontVariationSettings = "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24";
+        });
+
+        document.getElementById('tab-' + tabName).classList.remove('hidden');
+        document.getElementById('tab-' + tabName).classList.add('block');
+
+        const activeBtn = document.getElementById('btn-' + tabName);
+        activeBtn.classList.remove('text-on-surface-variant', 'font-medium', 'hover:bg-surface-variant');
+        activeBtn.classList.add('text-primary', 'bg-blue-50', 'font-bold');
+        const activeIcon = activeBtn.querySelector('.material-symbols-outlined');
+        activeIcon.style.fontVariationSettings = "'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24";
+    }
+
+    // --- Lógica de Modales de Confirmación ---
+    const modalConfirmacion = document.getElementById('modalConfirmacion');
+    const textoConfirmacion = document.getElementById('textoModalConfirmacion');
+    const modalPeligro = document.getElementById('modalPeligro');
+
+    function abrirModalConfirmacion(tipo) {
+        if(tipo === 'correo') {
+            textoConfirmacion.innerText = "Se actualizará tu dirección de correo electrónico institucional. ¿Deseas continuar?";
+        } else if (tipo === 'contraseña') {
+            textoConfirmacion.innerText = "Tu contraseña será reemplazada por la nueva que ingresaste. ¿Estás seguro?";
+        }
+        
+        modalConfirmacion.classList.remove('hidden');
+        modalConfirmacion.classList.add('flex');
+    }
+
+    function cerrarModalConfirmacion() {
+        modalConfirmacion.classList.add('hidden');
+        modalConfirmacion.classList.remove('flex');
+    }
+
+    function abrirModalPeligro() {
+        modalPeligro.classList.remove('hidden');
+        modalPeligro.classList.add('flex');
+    }
+
+    function cerrarModalPeligro() {
+        modalPeligro.classList.add('hidden');
+        modalPeligro.classList.remove('flex');
+    }
+</script>
+
+</body></html>
