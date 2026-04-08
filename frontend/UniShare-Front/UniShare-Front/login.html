@@ -110,7 +110,11 @@
 <h2 class="font-headline font-bold text-2xl text-on-surface">Iniciar sesión</h2>
 <div class="h-1 w-12 bg-primary rounded-full mt-2"></div>
 </div>
-<form class="space-y-6" onsubmit="window.location.href='dashboard.html'; return false;">
+
+<!-- Mensaje de error -->
+<div id="error-msg" class="hidden mb-4 p-3 rounded-xl bg-error-container text-on-error-container text-sm font-semibold"></div>
+
+<form class="space-y-6" onsubmit="handleLogin(event)">
 <div class="space-y-2">
 <label class="block text-sm font-semibold text-on-surface-variant ml-1" for="email">Email</label>
 <div class="relative group">
@@ -129,13 +133,13 @@
 <span class="material-symbols-outlined text-[20px]" data-icon="lock">lock</span>
 </div>
 <input class="block w-full pl-11 pr-4 py-4 bg-surface-container-low border-none rounded-2xl text-on-surface placeholder:text-outline/50 focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all duration-300" id="password" name="password" placeholder="••••••••" type="password" required/>
-<div class="absolute inset-y-0 right-0 pr-4 flex items-center cursor-pointer text-outline hover:text-on-surface transition-colors">
-<span class="material-symbols-outlined text-[20px]" data-icon="visibility">visibility</span>
+<div class="absolute inset-y-0 right-0 pr-4 flex items-center cursor-pointer text-outline hover:text-on-surface transition-colors" onclick="togglePassword()">
+<span class="material-symbols-outlined text-[20px]" id="toggle-icon">visibility</span>
 </div>
 </div>
 </div>
 <div class="pt-4 space-y-4">
-<button class="w-full py-4 px-6 rounded-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold text-lg shadow-[0_8px_24px_-4px_rgba(0,63,135,0.4)] hover:shadow-[0_12px_32px_-4px_rgba(0,63,135,0.5)] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2" type="submit">
+<button class="w-full py-4 px-6 rounded-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold text-lg shadow-[0_8px_24px_-4px_rgba(0,63,135,0.4)] hover:shadow-[0_12px_32px_-4px_rgba(0,63,135,0.5)] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed" type="submit" id="submit-btn">
 <span>Iniciar sesión</span>
 <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
 </button>
@@ -149,4 +153,66 @@
 </div>
 </div>
 </main>
+
+<script>
+  const API = 'http://192.168.56.101'
+
+  function togglePassword() {
+    const input = document.getElementById('password')
+    const icon = document.getElementById('toggle-icon')
+    if (input.type === 'password') {
+      input.type = 'text'
+      icon.textContent = 'visibility_off'
+    } else {
+      input.type = 'password'
+      icon.textContent = 'visibility'
+    }
+  }
+
+  async function handleLogin(e) {
+    e.preventDefault()
+    const correo = document.getElementById('email').value
+    const password = document.getElementById('password').value
+    const btn = document.getElementById('submit-btn')
+    const errorMsg = document.getElementById('error-msg')
+
+    errorMsg.classList.add('hidden')
+    btn.disabled = true
+    btn.innerHTML = '<span>Iniciando sesión...</span>'
+
+    try {
+      const res = await fetch(`${API}/api/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ correo, password })
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        errorMsg.textContent = data.error || 'Credenciales incorrectas'
+        errorMsg.classList.remove('hidden')
+        btn.disabled = false
+        btn.innerHTML = '<span>Iniciar sesión</span><span class="material-symbols-outlined">arrow_forward</span>'
+        return
+      }
+
+      localStorage.setItem('token', data.token)
+      localStorage.setItem('user', JSON.stringify(data.user))
+      window.location.href = 'dashboard.html'
+
+    } catch (err) {
+      errorMsg.textContent = 'Error de conexión con el servidor'
+      errorMsg.classList.remove('hidden')
+      btn.disabled = false
+      btn.innerHTML = '<span>Iniciar sesión</span><span class="material-symbols-outlined">arrow_forward</span>'
+    }
+  }
+
+  // Si ya hay sesión, redirigir al dashboard
+  if (localStorage.getItem('token')) {
+    window.location.href = 'dashboard.html'
+  }
+</script>
+
 </body></html>

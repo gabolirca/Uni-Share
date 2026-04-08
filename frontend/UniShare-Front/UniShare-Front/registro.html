@@ -104,7 +104,13 @@
 <div class="mb-10 text-center">
 <h1 class="font-headline text-3xl font-extrabold text-on-surface mb-2 tracking-tight">Crea tu cuenta</h1>
 </div>
-<form action="#" class="space-y-6" method="POST">
+
+<!-- Mensaje de error -->
+<div id="error-msg" class="hidden mb-4 p-3 rounded-xl bg-error-container text-on-error-container text-sm font-semibold"></div>
+<!-- Mensaje de éxito -->
+<div id="success-msg" class="hidden mb-4 p-3 rounded-xl bg-secondary-container text-on-secondary-container text-sm font-semibold"></div>
+
+<form class="space-y-6" onsubmit="handleRegister(event)">
 <div class="space-y-2">
 <label class="block font-label text-sm font-medium text-on-surface-variant ml-1" for="name">Nombre</label>
 <div class="relative group">
@@ -128,11 +134,11 @@
 <label class="block font-label text-sm font-medium text-on-surface-variant ml-1" for="career">Carrera</label>
 <select class="block w-full px-4 py-3 bg-surface-container-low border-transparent rounded-xl focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:border-primary transition-all text-on-surface appearance-none" id="career" name="career" required="">
 <option disabled="" selected="" value="">Selecciona carrera</option>
-<option value="ing-software">Ingeniería de Software</option>
-<option value="lic-administracion">Lic. en Administración</option>
-<option value="ing-industrial">Ingeniería Industrial</option>
-<option value="lic-diseno">Lic. en Diseño Gráfico</option>
-<option value="lic-derecho">Lic. en Derecho</option>
+<option value="Ingeniería de Software">Ingeniería de Software</option>
+<option value="Lic. en Administración">Lic. en Administración</option>
+<option value="Ingeniería Industrial">Ingeniería Industrial</option>
+<option value="Lic. en Diseño Gráfico">Lic. en Diseño Gráfico</option>
+<option value="Lic. en Derecho">Lic. en Derecho</option>
 </select>
 </div>
 <div class="space-y-2">
@@ -157,11 +163,11 @@
 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
 <span class="material-symbols-outlined text-outline group-focus-within:text-primary transition-colors">lock</span>
 </div>
-<input class="block w-full pl-11 pr-4 py-3 bg-surface-container-low border-transparent rounded-xl focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:border-primary transition-all text-on-surface placeholder:text-outline/60" id="password" name="password" placeholder="Mínimo 8 caracteres" required="" type="password"/>
+<input class="block w-full pl-11 pr-4 py-3 bg-surface-container-low border-transparent rounded-xl focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:border-primary transition-all text-on-surface placeholder:text-outline/60" id="password" name="password" placeholder="Mínimo 8 caracteres" required="" minlength="8" type="password"/>
 </div>
 </div>
 <div class="pt-4">
-<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-headline font-bold py-4 px-6 rounded-full hover:shadow-lg hover:shadow-primary/20 active:scale-[0.98] transition-all duration-200" type="submit">
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-headline font-bold py-4 px-6 rounded-full hover:shadow-lg hover:shadow-primary/20 active:scale-[0.98] transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed" type="submit" id="submit-btn">
                         Registrarse
                     </button>
 </div>
@@ -179,4 +185,63 @@
 <footer class="w-full py-8 px-10 flex flex-col md:flex-row justify-between items-center gap-4 bg-transparent border-t border-outline-variant/5">
 <span class="font-body text-xs tracking-wide text-slate-500 uppercase">© 2024 UniShare Scholarly Atelier</span>
 </footer>
+
+<script>
+  const API = 'http://192.168.56.101'
+
+  // Si ya hay sesión activa, redirigir al dashboard
+  if (localStorage.getItem('token')) {
+    window.location.href = 'dashboard.html'
+  }
+
+  async function handleRegister(e) {
+    e.preventDefault()
+
+    const nombre = document.getElementById('name').value
+    const correo = document.getElementById('email').value
+    const carrera = document.getElementById('career').value
+    const cuatrimestre = parseInt(document.getElementById('semester').value)
+    const password = document.getElementById('password').value
+    const btn = document.getElementById('submit-btn')
+    const errorMsg = document.getElementById('error-msg')
+    const successMsg = document.getElementById('success-msg')
+
+    errorMsg.classList.add('hidden')
+    successMsg.classList.add('hidden')
+    btn.disabled = true
+    btn.textContent = 'Registrando...'
+
+    try {
+      const res = await fetch(`${API}/api/auth/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nombre, correo, carrera, cuatrimestre, password })
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        errorMsg.textContent = data.error || 'Error al registrarse'
+        errorMsg.classList.remove('hidden')
+        btn.disabled = false
+        btn.textContent = 'Registrarse'
+        return
+      }
+
+      successMsg.textContent = '¡Cuenta creada exitosamente! Redirigiendo al login...'
+      successMsg.classList.remove('hidden')
+
+      setTimeout(() => {
+        window.location.href = 'login.html'
+      }, 1500)
+
+    } catch (err) {
+      errorMsg.textContent = 'Error de conexión con el servidor'
+      errorMsg.classList.remove('hidden')
+      btn.disabled = false
+      btn.textContent = 'Registrarse'
+    }
+  }
+</script>
+
 </body></html>
