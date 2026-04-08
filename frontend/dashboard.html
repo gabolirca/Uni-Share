@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UNI SHARE - Dashboard</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed": "#001a40","outline": "#727784","surface-bright": "#f9f9ff",
+              "inverse-primary": "#acc7ff","primary-container": "#0056b3","on-secondary-container": "#006e6e",
+              "surface-container-high": "#e7e8f0","on-surface-variant": "#424752","surface-tint": "#115cb9",
+              "outline-variant": "#c2c6d4","on-secondary-fixed-variant": "#004f4f","surface-container": "#ededf6",
+              "surface-container-lowest": "#ffffff","primary": "#003f87","on-tertiary-fixed-variant": "#6e3900",
+              "surface-container-low": "#f2f3fc","on-tertiary-fixed": "#2f1500","surface-variant": "#e1e2ea",
+              "on-primary-container": "#bbd0ff","on-surface": "#191c21","on-tertiary-container": "#ffc395",
+              "on-secondary-fixed": "#002020","on-secondary": "#ffffff","on-error": "#ffffff","background": "#f9f9ff",
+              "tertiary-fixed-dim": "#ffb77d","surface": "#f9f9ff","inverse-surface": "#2e3037","surface-dim": "#d9d9e2",
+              "secondary-fixed-dim": "#76d6d5","error-container": "#ffdad6","tertiary": "#663500","error": "#ba1a1a",
+              "on-primary-fixed-variant": "#004491","tertiary-fixed": "#ffdcc3","inverse-on-surface": "#f0f0f9",
+              "secondary-container": "#90efef","on-tertiary": "#ffffff","on-background": "#191c21","secondary": "#006a6a",
+              "tertiary-container": "#884800","secondary-fixed": "#93f2f2","primary-fixed-dim": "#acc7ff",
+              "surface-container-highest": "#e1e2ea","primary-fixed": "#d7e2ff","on-error-container": "#93000a","on-primary": "#ffffff"
+            },
+            fontFamily: { "headline": ["Manrope"], "body": ["Inter"], "label": ["Inter"] },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .mesh-bg {
+            background-color: #f9f9ff;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(210,100%,93%,1) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(220,100%,95%,1) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(200,100%,92%,1) 0, transparent 50%);
+        }
+        body { min-height: max(884px, 100dvh); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface min-h-screen mesh-bg pb-24">
+
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-blue-100/20 shadow-sm">
+<div class="flex justify-between items-center px-6 py-3 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-800">school</span>
+<h1 class="text-xl font-extrabold tracking-tighter text-blue-900 font-headline">UNI SHARE</h1>
+</div>
+<div class="relative group">
+<button class="flex items-center gap-2 p-1.5 pr-3 hover:bg-blue-50/50 rounded-full transition-all duration-200 active:scale-95">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs shadow-sm overflow-hidden" id="header-avatar">
+  <span id="header-initials">??</span>
+</div>
+<span class="material-symbols-outlined text-slate-500 text-lg transition-transform group-hover:rotate-180">expand_more</span>
+</button>
+<div class="absolute right-0 mt-2 w-56 origin-top-right bg-white/90 backdrop-blur-xl border border-blue-100/20 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 z-[60]">
+<div class="p-2 space-y-1">
+<a href="perfil.html" class="flex items-center gap-3 px-4 py-2.5 text-sm font-medium text-on-surface-variant hover:bg-blue-50 hover:text-primary rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg">person</span>Ver perfil</a>
+<a href="configuracion.html" class="flex items-center gap-3 px-4 py-2.5 text-sm font-medium text-on-surface-variant hover:bg-blue-50 hover:text-primary rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg">settings</span>Configuración</a>
+<div class="h-px bg-blue-100/50 my-1"></div>
+<button onclick="cerrarSesion()" class="w-full flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-error hover:bg-error/10 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg">logout</span>Cerrar sesión</button>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<main class="pt-20 px-6 max-w-7xl mx-auto">
+
+<!-- Saludo -->
+<section class="mt-8 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-2">
+<h2 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tight text-primary">
+  Bienvenido de nuevo, <br/><span class="text-secondary" id="welcome-name">Futuro Ingeniero.</span>
+</h2>
+<p class="text-on-surface-variant max-w-md">Accede a tus recursos académicos y colabora con tus compañeros en tiempo real.</p>
+</div>
+<button onclick="abrirModal()" class="group relative flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-primary-container text-on-primary px-8 py-4 rounded-full shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-1 transition-all active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<span class="font-bold tracking-wide">Subir material</span>
+</button>
+</section>
+
+<!-- Buscador global -->
+<section class="mb-8">
+<div class="relative max-w-2xl">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input id="buscador-global" type="text" oninput="buscarMaterial(this.value)"
+  class="w-full pl-11 pr-4 py-3 bg-surface-container-lowest border border-outline-variant/30 rounded-2xl text-on-surface placeholder:text-outline/60 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all shadow-sm"
+  placeholder="Buscar material en todas las carreras y materias..."/>
+</div>
+</section>
+
+<!-- Resultados de búsqueda (oculto por defecto) -->
+<section id="seccion-busqueda" class="hidden mb-12">
+<h3 class="text-xl font-headline font-bold text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">search</span>
+Resultados de búsqueda: "<span id="texto-busqueda" class="text-primary"></span>"
+</h3>
+<div id="resultados-busqueda">
+<p class="text-on-surface-variant text-sm">Buscando...</p>
+</div>
+</section>
+
+<!-- Materias de mi carrera -->
+<section class="mb-12 relative" id="seccion-mis-materias">
+<div class="flex items-center justify-between mb-6">
+<div>
+  <h3 class="text-xl font-headline font-bold text-on-surface">Mis Materias</h3>
+  <p class="text-xs text-on-surface-variant mt-1" id="carrera-label">Cargando...</p>
+</div>
+<div class="flex items-center gap-2">
+<button onclick="deslizarIzquierda()" class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors active:scale-95">
+<span class="material-symbols-outlined text-sm">arrow_back_ios_new</span></button>
+<button onclick="deslizarDerecha()" class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors active:scale-95">
+<span class="material-symbols-outlined text-sm">arrow_forward_ios</span></button>
+<a href="materias.html" class="text-primary font-semibold text-sm hover:underline ml-4">Ver todas</a>
+</div>
+</div>
+<div id="contenedor-materias" class="flex overflow-x-auto pb-4 gap-6 no-scrollbar -mx-2 px-2 items-center scroll-smooth">
+<p class="text-on-surface-variant text-sm">Cargando materias...</p>
+</div>
+</section>
+
+<!-- Materiales -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-8" id="seccion-materiales-dash">
+<div class="lg:col-span-2 space-y-6">
+<h3 class="text-xl font-headline font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">dynamic_feed</span>
+Material de <span id="titulo-materia-dash" class="text-primary ml-1">—</span>
+</h3>
+<div id="lista-materiales">
+<p class="text-on-surface-variant text-sm">Selecciona una materia para ver su material.</p>
+</div>
+</div>
+<aside class="hidden lg:block space-y-8">
+<div class="bg-gradient-to-br from-primary to-primary-container rounded-2xl p-6 text-on-primary relative overflow-hidden group">
+<div class="relative z-10">
+<h4 class="font-headline font-bold text-xl mb-2">Metas académicas</h4>
+<p class="text-on-primary-container text-sm mb-4">Comparte material y colabora con tus compañeros.</p>
+<div class="w-full bg-white/20 h-2 rounded-full overflow-hidden">
+<div class="bg-white h-full w-[60%] rounded-full shadow-[0_0_8px_white]"></div>
+</div>
+<p class="text-[10px] mt-2 font-bold opacity-80">60% COMPLETADO</p>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-8xl opacity-10 group-hover:scale-110 transition-transform">emoji_events</span>
+</div>
+</aside>
+</section>
+</main>
+
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-white/80 backdrop-blur-2xl shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-3xl md:hidden">
+<div class="flex justify-around items-center px-4 pb-4 pt-2">
+<a class="flex flex-col items-center justify-center bg-blue-100 text-blue-900 rounded-2xl px-5 py-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="text-[11px] font-medium">Inicio</span></a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-5 py-2" href="materias.html">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="text-[11px] font-medium">Biblioteca</span></a>
+<a onclick="abrirModal()" class="cursor-pointer flex flex-col items-center justify-center text-slate-500 px-5 py-2">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="text-[11px] font-medium">Subir</span></a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-5 py-2" href="perfil.html">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[11px] font-medium">Perfil</span></a>
+</div>
+</nav>
+
+<!-- Modal Subir Material -->
+<div id="modalSubirMaterial" class="fixed inset-0 z-[100] hidden items-center justify-center" style="background: rgba(0,0,0,0.25); backdrop-filter: blur(6px);">
+<div class="bg-white w-[90%] max-w-lg rounded-3xl p-8 shadow-2xl relative">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-2xl font-bold text-primary">Subir material</h2>
+<button onclick="cerrarModal()" class="text-slate-400 hover:text-slate-600 transition-colors">
+<span class="material-symbols-outlined">close</span></button>
+</div>
+<div id="modal-error" class="hidden mb-4 p-3 rounded-xl bg-error-container text-on-error-container text-sm font-semibold"></div>
+<div id="modal-success" class="hidden mb-4 p-3 rounded-xl bg-secondary-container text-on-secondary-container text-sm font-semibold"></div>
+<form class="space-y-4" onsubmit="subirMaterial(event)">
+<div class="space-y-1">
+<label class="text-xs font-bold text-slate-500 uppercase px-1">Título</label>
+<input id="m-titulo" class="w-full px-4 py-3 rounded-xl border border-blue-100 bg-blue-50/30 focus:ring-2 focus:ring-primary outline-none transition-all" placeholder="Ej: Guía de normalización" type="text" required/>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-bold text-slate-500 uppercase px-1">Descripción</label>
+<textarea id="m-descripcion" class="w-full px-4 py-3 rounded-xl border border-blue-100 bg-blue-50/30 focus:ring-2 focus:ring-primary outline-none transition-all resize-none" placeholder="¿De qué trata este material?" rows="3"></textarea>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="text-xs font-bold text-slate-500 uppercase px-1">Materia</label>
+<select id="m-materia" class="w-full px-4 py-3 rounded-xl border border-blue-100 bg-blue-50/30 focus:ring-2 focus:ring-primary outline-none">
+<option value="">Selecciona materia</option>
+</select>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-bold text-slate-500 uppercase px-1">Tipo</label>
+<select id="m-tipo" class="w-full px-4 py-3 rounded-xl border border-blue-100 bg-blue-50/30 focus:ring-2 focus:ring-primary outline-none">
+<option value="pdf">PDF</option>
+<option value="pptx">Presentación</option>
+<option value="docx">Documento</option>
+<option value="txt">Texto</option>
+</select>
+</div>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-bold text-slate-500 uppercase px-1">Archivo</label>
+<input id="m-archivo" class="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 cursor-pointer" type="file" accept=".pdf,.ppt,.pptx,.doc,.docx,.txt"/>
+</div>
+<button id="btn-publicar" class="w-full mt-6 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold py-4 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all active:scale-95 disabled:opacity-60" type="submit">
+Publicar</button>
+</form>
+</div>
+</div>
+
+<script>
+const API = 'http://192.168.56.101'
+const token = localStorage.getItem('token')
+let user = JSON.parse(localStorage.getItem('user') || 'null')
+if (!token || !user) window.location.href = 'login.html'
+
+const colores = ['bg-blue-600','bg-emerald-500','bg-purple-600','bg-orange-500','bg-rose-500','bg-indigo-600','bg-teal-500','bg-slate-500']
+const iconos = ['database','terminal','hub','architecture','calculate','functions','integration_instructions','memory']
+
+let materiaSeleccionadaId = null
+let todasLasMaterias = []
+let busquedaTimeout = null
+
+// Header avatar
+function setHeaderAvatar() {
+  const container = document.getElementById('header-avatar')
+  const ini = user.nombre.split(' ').map(n => n[0]).join('').toUpperCase().slice(0,2)
+  if (user.foto_url) {
+    container.innerHTML = `<img src="${API}${user.foto_url}" class="w-full h-full object-cover" alt="avatar"/>`
+  } else {
+    document.getElementById('header-initials').textContent = ini
+  }
+}
+
+// Cerrar sesión
+function cerrarSesion() {
+  localStorage.removeItem('token')
+  localStorage.removeItem('user')
+  window.location.href = 'login.html'
+}
+
+// Modal
+const modal = document.getElementById('modalSubirMaterial')
+function abrirModal() { modal.classList.remove('hidden'); modal.classList.add('flex') }
+function cerrarModal() { modal.classList.add('hidden'); modal.classList.remove('flex') }
+
+function deslizarIzquierda() { document.getElementById('contenedor-materias').scrollBy({ left: -300, behavior: 'smooth' }) }
+function deslizarDerecha() { document.getElementById('contenedor-materias').scrollBy({ left: 300, behavior: 'smooth' }) }
+
+// Cargar perfil actualizado
+async function cargarPerfil() {
+  try {
+    const res = await fetch(`${API}/api/users/me`, { headers: { 'Authorization': `Bearer ${token}` } })
+    const data = await res.json()
+    if (!res.ok) { cerrarSesion(); return }
+    user = { ...user, ...data }
+    localStorage.setItem('user', JSON.stringify(user))
+  } catch(err) {}
+}
+
+// Cargar materias filtradas por carrera del usuario
+async function cargarMaterias() {
+  try {
+    const res = await fetch(`${API}/api/materias`)
+    todasLasMaterias = await res.json()
+
+    // Filtrar por carrera del usuario
+    const carreraUser = user.carrera || ''
+    let materiasFiltradas = todasLasMaterias
+
+    if (carreraUser) {
+      // Buscar keyword de la carrera en la descripción
+      const keyword = obtenerKeywordCarrera(carreraUser)
+      materiasFiltradas = todasLasMaterias.filter(m =>
+        m.descripcion && m.descripcion.includes(keyword)
+      )
+      document.getElementById('carrera-label').textContent = carreraUser
+    } else {
+      document.getElementById('carrera-label').textContent = 'Todas las carreras — actualiza tu perfil para ver solo las tuyas'
+    }
+
+    // Llenar select del modal con TODAS las materias
+    const select = document.getElementById('m-materia')
+    select.innerHTML = '<option value="">Selecciona materia</option>'
+    todasLasMaterias.forEach(m => {
+      const opt = document.createElement('option')
+      opt.value = m.id
+      opt.textContent = m.nombre
+      select.appendChild(opt)
+    })
+
+    renderMaterias(materiasFiltradas)
+
+    if (materiasFiltradas.length > 0) {
+      const primera = document.querySelector('.materia-card')
+      if (primera) seleccionarMateria(materiasFiltradas[0].id, materiasFiltradas[0].nombre, primera, 0)
+    }
+  } catch(err) {
+    document.getElementById('contenedor-materias').innerHTML = '<p class="text-error text-sm">Error al cargar materias</p>'
+  }
+}
+
+// Keyword por carrera
+function obtenerKeywordCarrera(carrera) {
+  const mapa = {
+    'Ingeniería de Software': 'Sistemas',
+    'Lic. en Administración': 'Admin',
+    'Ingeniería Industrial': 'Industrial',
+    'Lic. en Diseño Gráfico': 'Diseño',
+    'Lic. en Derecho': 'Derecho',
+    'Contaduría Pública': 'Contaduría'
+  }
+  return mapa[carrera] || ''
+}
+
+// Renderizar tarjetas de materias
+function renderMaterias(materias) {
+  const contenedor = document.getElementById('contenedor-materias')
+  if (materias.length === 0) {
+    contenedor.innerHTML = '<p class="text-on-surface-variant text-sm">No hay materias para tu carrera. <a href="perfil.html" class="text-primary font-semibold">Actualiza tu perfil</a></p>'
+    return
+  }
+  contenedor.innerHTML = materias.map((m, i) => {
+    const color = colores[i % colores.length]
+    const icono = iconos[i % iconos.length]
+    const activa = i === 0
+    return `
+    <div onclick="seleccionarMateria(${m.id}, '${m.nombre.replace(/'/g, "\\'")}', this, ${i})"
+      class="materia-card flex-none w-56 cursor-pointer ${activa ? color + ' scale-105 shadow-lg border-2 border-white' : 'bg-blue-50 opacity-80 hover:opacity-100'} rounded-2xl p-5 h-36 flex flex-col justify-between transition-all"
+      data-id="${m.id}" data-idx="${i}">
+      <div class="bg-white/20 w-10 h-10 rounded-xl flex items-center justify-center">
+        <span class="material-symbols-outlined ${activa ? 'text-white' : 'text-blue-700'} materia-icono" style="font-variation-settings: 'FILL' 1;">${icono}</span>
+      </div>
+      <h4 class="font-headline font-bold ${activa ? 'text-white' : 'text-slate-800'} leading-tight text-sm materia-titulo">${m.nombre}</h4>
+    </div>`
+  }).join('')
+}
+
+// Seleccionar materia
+function seleccionarMateria(id, nombre, cardEl, idx) {
+  materiaSeleccionadaId = id
+  document.querySelectorAll('.materia-card').forEach(c => {
+    const i = parseInt(c.dataset.idx)
+    const color = colores[i % colores.length]
+    c.className = `materia-card flex-none w-56 cursor-pointer bg-blue-50 opacity-80 hover:opacity-100 rounded-2xl p-5 h-36 flex flex-col justify-between transition-all`
+    c.querySelector('.materia-titulo').className = 'font-headline font-bold text-slate-800 leading-tight text-sm materia-titulo'
+    c.querySelector('.materia-icono').className = 'material-symbols-outlined text-blue-700 materia-icono'
+  })
+  const color = colores[idx % colores.length]
+  cardEl.className = `materia-card flex-none w-56 cursor-pointer ${color} scale-105 shadow-lg border-2 border-white rounded-2xl p-5 h-36 flex flex-col justify-between transition-all`
+  cardEl.querySelector('.materia-titulo').className = 'font-headline font-bold text-white leading-tight text-sm materia-titulo'
+  cardEl.querySelector('.materia-icono').className = 'material-symbols-outlined text-white materia-icono'
+  document.getElementById('titulo-materia-dash').textContent = nombre
+  cargarMateriales(id)
+}
+
+// Cargar materiales
+async function cargarMateriales(materiaId) {
+  const lista = document.getElementById('lista-materiales')
+  lista.innerHTML = '<p class="text-on-surface-variant text-sm">Cargando...</p>'
+  try {
+    const res = await fetch(`${API}/api/materiales?materia_id=${materiaId}`)
+    const materiales = await res.json()
+    if (materiales.length === 0) {
+      lista.innerHTML = '<p class="text-on-surface-variant text-sm">No hay materiales en esta materia todavía. ¡Sé el primero en aportar!</p>'
+      return
+    }
+    lista.innerHTML = materiales.map(m => renderMaterial(m)).join('')
+  } catch(err) {
+    lista.innerHTML = '<p class="text-error text-sm">Error al cargar materiales</p>'
+  }
+}
+
+// Render de un material
+function renderMaterial(m) {
+  const avatarHtml = m.foto_url
+    ? `<img src="${API}${m.foto_url}" class="w-full h-full object-cover" alt="avatar"/>`
+    : `<span class="text-xs font-bold text-white">${(m.autor||'?').split(' ').map(n=>n[0]).join('').slice(0,2)}</span>`
+
+  return `
+  <article class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-outline-variant/10 hover:shadow-md transition-shadow mb-4">
+    <div class="flex items-start justify-between mb-4">
+      <div class="flex gap-3 items-center">
+        <div class="w-10 h-10 rounded-full bg-primary overflow-hidden flex items-center justify-center">${avatarHtml}</div>
+        <div>
+          <p class="font-bold text-on-surface text-sm">${m.autor}</p>
+          <p class="text-xs text-on-surface-variant">${new Date(m.created_at).toLocaleDateString('es-MX', {day:'numeric',month:'long'})} • ${m.materia}</p>
+        </div>
+      </div>
+      <span class="bg-blue-100 text-on-primary-fixed-variant px-3 py-1 rounded-md text-xs font-bold uppercase">${m.materia}</span>
+    </div>
+    <h4 class="text-lg font-headline font-bold text-primary mb-2">${m.titulo}</h4>
+    <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">${m.descripcion || ''}</p>
+    <div class="flex items-center justify-between border-t border-surface-container pt-4">
+      <div class="flex items-center gap-4">
+        <button onclick="darLike(${m.id}, this)" class="flex items-center gap-1 text-on-surface-variant hover:text-primary cursor-pointer transition-colors">
+          <span class="material-symbols-outlined text-lg">thumb_up</span>
+          <span class="text-xs font-semibold like-count">${m.likes}</span>
+        </button>
+        <div class="flex items-center gap-1 text-on-surface-variant">
+          <span class="material-symbols-outlined text-lg">download</span>
+          <span class="text-xs font-semibold">${m.descargas}</span>
+        </div>
+      </div>
+      <a href="${API}${m.archivo_url}" target="_blank" class="flex items-center gap-2 bg-primary text-on-primary px-5 py-2 rounded-full text-sm font-bold active:scale-95 transition-transform">
+        <span class="material-symbols-outlined text-sm">download</span>Descargar</a>
+    </div>
+  </article>`
+}
+
+// Buscador global
+async function buscarMaterial(query) {
+  clearTimeout(busquedaTimeout)
+  const seccionBusqueda = document.getElementById('seccion-busqueda')
+  const seccionMaterias = document.getElementById('seccion-mis-materias')
+  const seccionMateriales = document.getElementById('seccion-materiales-dash')
+
+  if (!query.trim()) {
+    seccionBusqueda.classList.add('hidden')
+    seccionMaterias.classList.remove('hidden')
+    seccionMateriales.classList.remove('hidden')
+    return
+  }
+
+  seccionBusqueda.classList.remove('hidden')
+  seccionMaterias.classList.add('hidden')
+  seccionMateriales.classList.add('hidden')
+  document.getElementById('texto-busqueda').textContent = query
+  document.getElementById('resultados-busqueda').innerHTML = '<p class="text-on-surface-variant text-sm">Buscando...</p>'
+
+  busquedaTimeout = setTimeout(async () => {
+    const q = query.toLowerCase()
+
+    // Buscar materias que coincidan
+    const materiasCoinciden = todasLasMaterias.filter(m =>
+      m.nombre.toLowerCase().includes(q) ||
+      (m.descripcion && m.descripcion.toLowerCase().includes(q))
+    )
+
+    // Buscar materiales de esas materias + materiales que coincidan por título/descripción
+    try {
+      const res = await fetch(`${API}/api/materiales`)
+      const todos = await res.json()
+
+      const idsMateriasCoinciden = new Set(materiasCoinciden.map(m => m.id))
+
+      const filtrados = todos.filter(m =>
+        m.titulo.toLowerCase().includes(q) ||
+        (m.descripcion && m.descripcion.toLowerCase().includes(q)) ||
+        (m.materia && m.materia.toLowerCase().includes(q)) ||
+        (m.autor && m.autor.toLowerCase().includes(q)) ||
+        idsMateriasCoinciden.has(m.materia_id)
+      )
+
+      const resultadosEl = document.getElementById('resultados-busqueda')
+
+      // Mostrar materias encontradas si no tienen material aún
+      let html = ''
+
+      if (materiasCoinciden.length > 0 && filtrados.length === 0) {
+        html += `<p class="text-on-surface-variant text-xs mb-4">Se encontraron ${materiasCoinciden.length} materia(s) pero aún no tienen material subido.</p>`
+        html += materiasCoinciden.map((m, i) => `
+          <div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm border border-outline-variant/10 mb-3 flex items-center gap-4 cursor-pointer hover:shadow-md transition-shadow"
+            onclick="irAMateria(${m.id}, '${m.nombre.replace(/'/g, "\\'")}')">
+            <div class="w-12 h-12 rounded-xl ${colores[i % colores.length]} flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">${iconos[i % iconos.length]}</span>
+            </div>
+            <div>
+              <h4 class="font-headline font-bold text-primary">${m.nombre}</h4>
+              <p class="text-xs text-on-surface-variant">${m.descripcion || ''}</p>
+            </div>
+            <span class="ml-auto text-xs text-on-surface-variant">Sin material aún →</span>
+          </div>
+        `).join('')
+      } else if (filtrados.length > 0) {
+        html += `<p class="text-on-surface-variant text-xs mb-4">${filtrados.length} material(es) encontrado(s)</p>`
+        html += filtrados.map(m => renderMaterial(m)).join('')
+      } else {
+        html = '<p class="text-on-surface-variant text-sm">No se encontraron resultados.</p>'
+      }
+
+      resultadosEl.innerHTML = html
+    } catch(err) {
+      document.getElementById('resultados-busqueda').innerHTML = '<p class="text-error text-sm">Error al buscar</p>'
+    }
+  }, 400)
+}
+
+function irAMateria(id, nombre) {
+  document.getElementById('buscador-global').value = ''
+  document.getElementById('seccion-busqueda').classList.add('hidden')
+  document.getElementById('seccion-mis-materias').classList.remove('hidden')
+  document.getElementById('seccion-materiales-dash').classList.remove('hidden')
+  document.getElementById('titulo-materia-dash').textContent = nombre
+  cargarMateriales(id)
+  window.scrollTo({ top: document.getElementById('seccion-materiales-dash').offsetTop - 100, behavior: 'smooth' })
+}
+
+// Like
+async function darLike(id, btn) {
+  try {
+    const res = await fetch(`${API}/api/materiales/${id}/like`, {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${token}` }
+    })
+    const data = await res.json()
+    if (res.ok) btn.querySelector('.like-count').textContent = data.likes
+  } catch(err) {}
+}
+
+// Subir material
+async function subirMaterial(e) {
+  e.preventDefault()
+  const btn = document.getElementById('btn-publicar')
+  const errorEl = document.getElementById('modal-error')
+  const successEl = document.getElementById('modal-success')
+  errorEl.classList.add('hidden')
+  successEl.classList.add('hidden')
+
+  const archivo = document.getElementById('m-archivo').files[0]
+  if (!archivo) { errorEl.textContent = 'Selecciona un archivo'; errorEl.classList.remove('hidden'); return }
+
+  const formData = new FormData()
+  formData.append('titulo', document.getElementById('m-titulo').value)
+  formData.append('descripcion', document.getElementById('m-descripcion').value)
+  formData.append('materia_id', document.getElementById('m-materia').value)
+  formData.append('tipo', document.getElementById('m-tipo').value)
+  formData.append('archivo', archivo)
+
+  btn.disabled = true
+  btn.textContent = 'Subiendo...'
+
+  try {
+    const res = await fetch(`${API}/api/materiales`, {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${token}` },
+      body: formData
+    })
+    const data = await res.json()
+    if (!res.ok) {
+      errorEl.textContent = data.error || 'Error al subir'
+      errorEl.classList.remove('hidden')
+    } else {
+      successEl.textContent = '¡Material subido exitosamente!'
+      successEl.classList.remove('hidden')
+      setTimeout(() => {
+        cerrarModal()
+        if (materiaSeleccionadaId) cargarMateriales(materiaSeleccionadaId)
+      }, 1500)
+    }
+  } catch(err) {
+    errorEl.textContent = 'Error de conexión'
+    errorEl.classList.remove('hidden')
+  }
+  btn.disabled = false
+  btn.textContent = 'Publicar'
+}
+
+// Iniciar
+async function init() {
+  await cargarPerfil()
+  document.getElementById('welcome-name').textContent = user.nombre + '.'
+  setHeaderAvatar()
+  cargarMaterias()
+}
+
+init()
+</script>
+</body></html>
