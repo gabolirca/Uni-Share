@@ -393,10 +393,10 @@ async function cargarMateriales(materiaId) {
 
 // Render de un material
 function renderMaterial(m) {
-  const avatarHtml = m.foto_url
-    ? `<img src="${API}${m.foto_url}" class="w-full h-full object-cover" alt="avatar"/>`
+  const avatarHtml = m.autor_foto
+    ? `<img src="${API}${m.autor_foto}" class="w-full h-full object-cover" alt="avatar"/>`
     : `<span class="text-xs font-bold text-white">${(m.autor||'?').split(' ').map(n=>n[0]).join('').slice(0,2)}</span>`
-
+    
   return `
   <article class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-outline-variant/10 hover:shadow-md transition-shadow mb-4">
     <div class="flex items-start justify-between mb-4">

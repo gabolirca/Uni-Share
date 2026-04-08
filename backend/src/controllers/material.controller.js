@@ -2,12 +2,11 @@ const pool = require('../config/database')
 const path = require('path')
 const fs = require('fs')
 
-// Obtener todos los materiales
 const getMateriales = async (req, res) => {
   try {
     const { materia_id } = req.query
     let query = `
-      SELECT m.*, u.nombre as autor, mat.nombre as materia
+      SELECT m.*, u.nombre as autor, u.foto_url as autor_foto, mat.nombre as materia
       FROM materiales m
       JOIN usuarios u ON m.usuario_id = u.id
       LEFT JOIN materias mat ON m.materia_id = mat.id
@@ -31,7 +30,7 @@ const getMateriales = async (req, res) => {
 const getMaterialById = async (req, res) => {
   try {
     const result = await pool.query(`
-      SELECT m.*, u.nombre as autor, mat.nombre as materia
+      SELECT m.*, u.nombre as autor, u.foto_url as autor_foto, mat.nombre as materia
       FROM materiales m
       JOIN usuarios u ON m.usuario_id = u.id
       LEFT JOIN materias mat ON m.materia_id = mat.id
