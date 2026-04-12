@@ -1,0 +1,162 @@
+# ============================================================
+#  UniShare — Requerimientos del Sistema
+#  Plataforma web universitaria para compartir material académico
+#  Open Source — MIT License
+# ============================================================
+
+# ------------------------------------------------------------
+#  SISTEMA OPERATIVO
+# ------------------------------------------------------------
+Debian 12 (Bookworm) — recomendado
+Ubuntu 22.04 LTS      — compatible
+
+# ------------------------------------------------------------
+#  REQUERIMIENTOS DE HARDWARE (mínimo)
+# ------------------------------------------------------------
+CPU:  2 núcleos
+RAM:  4 GB
+Disco: 20 GB libres (SSD recomendado)
+Red:  Acceso a internet para descarga de imágenes Docker
+
+# ------------------------------------------------------------
+#  REQUERIMIENTOS DE HARDWARE (recomendado para producción)
+# ------------------------------------------------------------
+CPU:  4 núcleos
+RAM:  8 GB
+Disco: 50 GB (LVM recomendado para gestión de volúmenes)
+
+# ------------------------------------------------------------
+#  SOFTWARE BASE
+# ------------------------------------------------------------
+Git                  >= 2.39
+Docker               >= 24.0
+Docker Compose       >= 2.20 (plugin, no standalone)
+Node.js              >= 20.0 LTS
+npm                  >= 10.0
+curl                 (incluido en Debian 12)
+
+# ------------------------------------------------------------
+#  IMÁGENES DOCKER (descarga automática al hacer up)
+# ------------------------------------------------------------
+node:20-alpine       Backend API
+postgres:15          Base de datos
+nginx:alpine         Proxy inverso y balanceador
+netdata/netdata      Monitoreo en tiempo real
+
+# ------------------------------------------------------------
+#  DEPENDENCIAS DEL BACKEND (backend/package.json)
+# ------------------------------------------------------------
+express              ^4.x    Framework web
+pg                   ^8.x    Cliente PostgreSQL
+dotenv               ^16.x   Variables de entorno
+jsonwebtoken         ^9.x    Autenticación JWT
+bcryptjs             ^2.x    Hashing de contraseñas
+multer               ^1.x    Subida de archivos
+cors                 ^2.x    Cross-Origin Resource Sharing
+
+# Dependencias de desarrollo
+nodemon              ^3.x    Hot reload en desarrollo
+
+# ------------------------------------------------------------
+#  PUERTOS UTILIZADOS
+# ------------------------------------------------------------
+80      NGINX (frontend + proxy API)
+3000    API Node.js (interno, no expuesto)
+5432    PostgreSQL (interno, no expuesto)
+19999   Netdata (monitoreo)
+4040    ngrok Web Interface (local)
+
+# ------------------------------------------------------------
+#  VARIABLES DE ENTORNO REQUERIDAS (.env)
+# ------------------------------------------------------------
+PORT                 Puerto del servidor (default: 3000)
+NODE_ENV             Entorno: development | production
+DB_HOST              Host de PostgreSQL (default: postgres_master)
+DB_PORT              Puerto de PostgreSQL (default: 5432)
+DB_NAME              Nombre de la base de datos
+DB_USER              Usuario de PostgreSQL
+DB_PASSWORD          Contraseña de PostgreSQL
+JWT_SECRET           Clave secreta para firmar tokens JWT
+JWT_EXPIRES_IN       Expiración del token (default: 7d)
+UPLOAD_PATH          Ruta de archivos subidos (default: ./uploads)
+MAX_FILE_SIZE        Tamaño máximo de archivo en bytes (default: 10485760 = 10MB)
+
+# ------------------------------------------------------------
+#  TIPOS DE ARCHIVO PERMITIDOS (subida de material)
+# ------------------------------------------------------------
+.pdf     Documentos PDF
+.ppt     Presentaciones PowerPoint (legacy)
+.pptx    Presentaciones PowerPoint
+.doc     Documentos Word (legacy)
+.docx    Documentos Word
+.txt     Archivos de texto plano
+
+# ------------------------------------------------------------
+#  TIPOS DE ARCHIVO PERMITIDOS (foto de perfil)
+# ------------------------------------------------------------
+.jpg / .jpeg    Imagen JPEG
+.png            Imagen PNG
+.webp           Imagen WebP
+Tamaño máximo:  2 MB
+
+# ------------------------------------------------------------
+#  ACCESO EXTERNO OPCIONAL
+# ------------------------------------------------------------
+ngrok >= 3.x    Para tunnel HTTPS en desarrollo/demo
+                Requiere cuenta gratuita en https://ngrok.com
+                Alternativa: Cloudflare Tunnel (producción)
+
+# ------------------------------------------------------------
+#  REQUERIMIENTOS DE RED
+# ------------------------------------------------------------
+- Puerto 80 abierto en firewall para tráfico HTTP
+- Puerto 19999 abierto para acceso a Netdata (opcional)
+- Acceso a internet para CDN (Tailwind CSS, Google Fonts)
+  Si se desea uso offline, instalar Tailwind CLI localmente
+
+# ------------------------------------------------------------
+#  HERRAMIENTAS OPCIONALES PARA DESARROLLO
+# ------------------------------------------------------------
+VS Code              Editor recomendado
+  Extensión: Remote - SSH   (para desarrollo en VM)
+  Extensión: Docker          (para gestión de contenedores)
+  Extensión: REST Client     (para probar la API)
+Postman / Insomnia   Cliente HTTP para pruebas de API
+DBeaver              Cliente gráfico para PostgreSQL
+
+# ------------------------------------------------------------
+#  INSTRUCCIONES DE INSTALACIÓN RÁPIDA
+# ------------------------------------------------------------
+1. git clone https://github.com/gabolirca/Uni-Share.git
+2. cd Uni-Share
+3. cp backend/.env.example backend/.env
+4. Editar backend/.env con tus valores
+5. docker compose -f infra/docker-compose.yml up -d
+6. sleep 10
+7. docker exec -i unishare_db_master psql -U unishare_user -d unishare_db < backend/src/config/schema.sql
+8. Abrir http://localhost en el navegador
+
+# Ver README.md para instrucciones detalladas de despliegue.
+
+# ------------------------------------------------------------
+#  CONTRIBUIR AL PROYECTO
+# ------------------------------------------------------------
+1. Fork del repositorio
+2. Crear rama: git checkout -b feature/nueva-funcionalidad
+3. Commit: git commit -m "feat: descripción del cambio"
+4. Push: git push origin feature/nueva-funcionalidad
+5. Abrir Pull Request hacia la rama develop
+
+# Seguir convención de commits:
+# feat:     Nueva funcionalidad
+# fix:      Corrección de bug
+# docs:     Documentación
+# chore:    Tareas de mantenimiento
+# refactor: Refactorización de código
+# test:     Pruebas
+
+# ============================================================
+#  Versión: 1.0.0
+#  Última actualización: Abril 2026
+#  Repositorio: https://github.com/gabolirca/Uni-Share
+# ============================================================
